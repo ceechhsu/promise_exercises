@@ -14,9 +14,29 @@
  * * getPromise(num) function must be exported
  * Example: export const getPromise(num) => return <Your code of promise>
  */
-export const getPromise = () => {
+
+export const getPromise = (arg) => {
   // Your code goes here...
+  if (Number.isInteger(arg)) {
+    // If it's a whole number, return a promise that resolves with the argument value
+    return new Promise((resolve, reject) => {
+      resolve(arg);
+    });
+  } else {
+    // If it's not a whole number, return 0 immediately
+    return 0;
+  }
 };
+
+// export const getPromise = (arg) => {
+//   return new Promise((resolve, reject) => {
+//     if (Number.isInteger(arg)) {
+//       resolve(arg);
+//     } else {
+//       return 0;
+//     }
+//   });
+// };
 
 /**
  * @task
@@ -31,6 +51,21 @@ export const getPromise = () => {
  */
 export const updateSumValue = () => {
   // Your code goes here...
+  let sum = 2;
+  getPromise(120).then((result) => {
+    sum += result;
+  });
+
+  sum += 8;
+  return sum;
+
+  // Use getPromise to asynchronously resolve a promise with an argument of 120
+  //  getPromise(120).then((result) => {
+  //   // Add the promise value to the 'sum' variable
+  //   sum += 0;
+  //   sum += 8;
+  //   return sum;
+  // });
 };
 
 // === TEST YOURSELF ===
